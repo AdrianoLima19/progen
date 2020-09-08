@@ -1,0 +1,18 @@
+{
+    "name": "surerloki/progen",
+    "description": "Gerador de dados brasileiros ficticios",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AdrianoLima19",
+            "email": "surerloki3379@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Progen\\Generator": "src/"
+        }
+    },
+    "require": {}
+}

@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Progen\\Generator\\": "src/"
+            "Progen\\Generator\\": "src/Generator/"
         }
     },
     "require": {}

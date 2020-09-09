@@ -5,7 +5,7 @@ namespace Progen\Generator;
 class CreditCard
 {
     private $creditCard;
-    private $cardNumber;
+    private $cardFlag;
     private $expirationDate;
     private $securityCode;
 
@@ -68,9 +68,30 @@ class CreditCard
 
         $data = $curl = $cardInfo[0] = null;
 
-        $this->creditCard = $creditCard;
-        $this->cardNumber = $cardInfo[1][0];
+        $this->cardFlag = $creditCard;
+        $this->creditCard = $cardInfo[1][0];
         $this->expirationDate = $cardInfo[1][1];
         $this->securityCode = $cardInfo[1][2];
     }
+
+    public function getCreditCard()
+    {
+        return $this->creditCard;
+    }
+    
+    public function getCardFlag()
+    {
+        return $this->cardFlag;
+    }
+    
+    public function getExpirationDate()
+    {
+        return $this->expirationDate;
+    }
+    
+    public function getSecurityCode()
+    {
+        return $this->securityCode;
+    }
+    
 }

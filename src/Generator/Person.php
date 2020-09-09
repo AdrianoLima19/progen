@@ -4,6 +4,8 @@ namespace Progen\Generator;
 
 use DateTime;
 use DateTimeZone;
+require_once "Cities.php";
+use Progen\Generator\Cities;
 
 class Person
 {

@@ -46,7 +46,7 @@ class Cities
             "SE" => "Sergipe",
             "TO" => "Tocantins",
         ];
-
+        
         if (!empty($state)) {
             foreach ($stateArray as $key => $value) {
                 if (mb_strtolower($state) == mb_strtolower($value)) {
@@ -96,15 +96,16 @@ class Cities
         }
 
         if (!empty($city)) {
+            $cityFormatted =  preg_replace('/[^A-Za-zzáàâãéèêíïóôõöüúçñÁÀÂÃÉÈÍÏÓÔÕÖÜÚÇÑ0]/', '', utf8_decode($city));
             for ($i=0; $i < count($cities[0]); $i++) { 
-                $cityFormatted = preg_replace('/[^A-Za-z\s]/', '', iconv("UTF-8", "ASCII//TRANSLIT", $city));
-                $citiesFormatted = preg_replace('/[^A-Za-z\s]/', '', iconv("UTF-8", "ASCII//TRANSLIT", $cities[1][$i]));
+                $citiesFormatted = preg_replace('/[^A-Za-zzáàâãéèêíïóôõöüúçñÁÀÂÃÉÈÍÏÓÔÕÖÜÚÇÑ0]/', '', utf8_decode($cities[1][$i]));
                 if (strtolower($cityFormatted) == strtolower($citiesFormatted)) {
                     $city = $cities[1][$i];
                     $cityCode = $cities[0][$i];
                 }
             }
-        } else {
+        }
+        if(empty($city)){
             $randId = array_rand($cities[0], 1);
             $city = $cities[1][$randId];
             $cityCode = $cities[0][$randId];

@@ -2,6 +2,9 @@
 
 namespace Progen\Generator;
 
+require_once "Cep.php";
+use Progen\Generator\Cep;
+
 class Company
 {
 
@@ -73,5 +76,85 @@ class Company
         $this->stateAbr = $cep->getStateAbr();
         $this->landline = $cep->getLandline();
         $this->cellphone = $cep->getCellphone();
+    }
+
+    public function getCompanyName()
+    {
+        return $this->companyName;
+    }
+    
+    public function getCnpj()
+    {
+        return $this->cnpj;
+    }
+    
+    public function getStateRegistration()
+    {
+        return $this->stateRegistration;
+    }
+    
+    public function getOpeningDate()
+    {
+        return $this->openingDate;
+    }
+    
+    public function getSite()
+    {
+        return $this->site;
+    }
+    
+    public function getEmail()
+    {
+        return $this->email;
+    }
+    
+    public function getZipCode()
+    {
+        return $this->zipCode;
+    }
+    
+    public function getAddress()
+    {
+        return $this->address;
+    }
+    
+    public function getAddresNumber()
+    {
+        return $this->addresNumber;
+    }
+    
+    public function getDistrict()
+    {
+        return $this->district;
+    }
+    
+    public function getCity()
+    {
+        return $this->city;
+    }
+    
+    public function getCityCode()
+    {
+        return $this->cityCode;
+    }
+    
+    public function getState()
+    {
+        return $this->state;
+    }
+    
+    public function getStateAbr()
+    {
+        return $this->stateAbr;
+    }
+    
+    public function getLandline()
+    {
+        return $this->landline;
+    }
+    
+    public function getCellphone()
+    {
+        return $this->cellphone;
     }
 }

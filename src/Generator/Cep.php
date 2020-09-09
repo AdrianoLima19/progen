@@ -2,6 +2,9 @@
 
 namespace Progen\Generator;
 
+require_once "Cities.php";
+use Progen\Generator\Cities;
+
 class Cep
 {
     private $zipCode;

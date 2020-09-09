@@ -2,11 +2,11 @@
 Este projeto é um web scraper do [4devs](https://www.4devs.com.br), que gera dados brasileiros válidos. Esses dados `não` servem para fazer compras na internet, mas, para ajudar programadores a testarem seus softwares.
 
 ### Instalação
-Progen pode ser instalçado via composer
+Progen pode ser instalado via composer
 ```
 "surerloki/progen": "^0.1.1",
 ```
-ou via cmd
+ou via cmd/bash
 ```cmd
 $ composer require surerloki/progen
 ```

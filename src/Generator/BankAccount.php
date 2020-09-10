@@ -71,7 +71,7 @@ class BankAccount
         
         $this->currentAccount = $data[1][0];
         $this->agency = $data[1][1];
-        $this->bank = $bank;
+        $this->bank = $data[1][2];
         $this->city = $cities->getCity();
         $this->state = $cities->getState();
         $this->stateAbr = $cities->getStateAbr();

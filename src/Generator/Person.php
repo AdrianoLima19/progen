@@ -2,9 +2,9 @@
 
 namespace Progen\Generator;
 
+require_once "Cities.php";
 use DateTime;
 use DateTimeZone;
-require_once "Cities.php";
 use Progen\Generator\Cities;
 
 class Person
@@ -15,6 +15,7 @@ class Person
     private $age;
     private $cpf;
     private $rg;
+    private $cnh;
     private $birth;
     private $gender;
     private $mom;
@@ -38,7 +39,7 @@ class Person
     public function __construct($punctuation = true, $gender = "I", $state = null, $city = null)
     {
         $url = "https://www.4devs.com.br/ferramentas_online.php";
-
+        
         if ($punctuation) {
             $punctuation = "S";
         } else {
@@ -70,11 +71,19 @@ class Person
         curl_setopt($curl, CURLOPT_POST, 1);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $query);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        $jsonData = curl_exec($curl);
+        $personData = curl_exec($curl);
+        curl_close($curl);
+        $data = json_decode($personData);
+        
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        curl_setopt($curl, CURLOPT_POST, 1);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, "acao=gerar_cnh");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        $cnh = curl_exec($curl);
         curl_close($curl);
 
-        $data = json_decode($jsonData);
-        
         $name = explode(" ", $data->nome);
         $fname = trim($name[0]);
         array_shift($name);
@@ -106,6 +115,7 @@ class Person
         $this->height = $data->altura;
         $this->Weight = $data->peso;
         $this->bloodType = $data->tipo_sanguineo;
+        $this->cnh = $cnh;
     }
 
     /**
@@ -254,4 +264,8 @@ class Person
         return $this->state;
     }
     
+    public function getCnh()
+    {
+        return $this->cnh;
+    }
 }

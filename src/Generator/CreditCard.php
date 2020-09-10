@@ -5,7 +5,7 @@ namespace Progen\Generator;
 class CreditCard
 {
     private $creditCard;
-    private $cardFlag;
+    private $bank;
     private $expirationDate;
     private $securityCode;
 
@@ -34,15 +34,16 @@ class CreditCard
         if ($creditCard) {
             foreach ($disponibleCards as $card => $cardsId) {
                 if (strtolower(trim($card)) == strtolower(trim($creditCard))) {
-                    echo $creditCard = $card;echo "<br>";
-                    echo $cardId = $cardsId;
+                    $creditCard = $card;
+                    $cardId = $cardsId;
+                    break;
                 }
             }
         } 
 
         if(!isset($cardId)) {
-            echo $creditCard = array_rand($disponibleCards, 1); echo "<br>";
-            echo $cardId = $disponibleCards[$creditCard];
+            $creditCard = array_rand($disponibleCards, 1); 
+            $cardId = $disponibleCards[$creditCard];
         }
 
         $loadArray = [
@@ -68,7 +69,7 @@ class CreditCard
 
         $data = $curl = $cardInfo[0] = null;
 
-        $this->cardFlag = $creditCard;
+        $this->bank = $creditCard;
         $this->creditCard = $cardInfo[1][0];
         $this->expirationDate = $cardInfo[1][1];
         $this->securityCode = $cardInfo[1][2];
@@ -79,9 +80,9 @@ class CreditCard
         return $this->creditCard;
     }
     
-    public function getCardFlag()
+    public function getbank()
     {
-        return $this->cardFlag;
+        return $this->bank;
     }
     
     public function getExpirationDate()

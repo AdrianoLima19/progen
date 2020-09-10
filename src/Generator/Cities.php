@@ -52,9 +52,11 @@ class Cities
                 if (mb_strtolower($state) == mb_strtolower($value)) {
                     $stateAbr = strtoupper($key);
                     $state = $value;
+                    break;
                 }else if (mb_strtolower($state) == mb_strtolower($key)) {
                     $stateAbr = strtoupper($key);
                     $state = $value;
+                    break;
                 }
             }
         }
@@ -102,10 +104,11 @@ class Cities
                 if (strtolower($cityFormatted) == strtolower($citiesFormatted)) {
                     $city = $cities[1][$i];
                     $cityCode = $cities[0][$i];
+                    break;
                 }
             }
         }
-        if(empty($city)){
+        if(empty($cityCode)){
             $randId = array_rand($cities[0], 1);
             $city = $cities[1][$randId];
             $cityCode = $cities[0][$randId];

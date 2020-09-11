@@ -151,11 +151,29 @@ $cities->getCityCode();
 #### Gerador Lorem
 ##### Parâmetros
 ```
-$text = new Lorem(paragraphs, $type, $style);
+$text = new Lorem($paragraphs, $type, $style);
 $text = new Lorem();
 $text = new Lorem(4, "long");
 ```
 ##### Métodos
 ```
 $text->getText();
+```
+#### Gerador Carro
+##### Parâmetros
+```
+$car = new Car();
+$car = new Car($punctuation, $carBrand, $state);
+$car = new Car(true, "", "RJ");
+$car = new Car(true, "Fiat");
+$car = new Car(true, "Mercury", "SP");
+```
+##### Métodos
+```
+$car->getBrand();
+$car->getModel();
+$car->getYear();
+$car->getRenavam();
+$car->getLicensePlate();
+$car->getColor();
 ```

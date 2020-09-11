@@ -2,8 +2,6 @@
 
 namespace Progen\Generator;
 
-use Progen\Generator\Cities;
-
 class BankAccount
 {
     private $currentAccount;

@@ -5,7 +5,7 @@ namespace Progen\Generator;
 class CreditCard
 {
     private $creditCard;
-    private $bank;
+    private $cardNumber;
     private $expirationDate;
     private $securityCode;
 
@@ -31,9 +31,10 @@ class CreditCard
             "Aura" => "aura",
         ];
 
-        if ($creditCard) {
+        if (!empty($creditCard)) {
+            $creditCard = strtolower(trim($creditCard));
             foreach ($disponibleCards as $card => $cardsId) {
-                if (strtolower(trim($card)) == strtolower(trim($creditCard))) {
+                if (strtolower(trim($card)) == $creditCard) {
                     $creditCard = $card;
                     $cardId = $cardsId;
                     break;
@@ -69,8 +70,8 @@ class CreditCard
 
         $data = $curl = $cardInfo[0] = null;
 
-        $this->bank = $creditCard;
-        $this->creditCard = $cardInfo[1][0];
+        $this->creditCard = $creditCard;
+        $this->cardNumber = $cardInfo[1][0];
         $this->expirationDate = $cardInfo[1][1];
         $this->securityCode = $cardInfo[1][2];
     }
@@ -80,9 +81,9 @@ class CreditCard
         return $this->creditCard;
     }
     
-    public function getbank()
+    public function getCardNumber()
     {
-        return $this->bank;
+        return $this->cardNumber;
     }
     
     public function getExpirationDate()
@@ -94,5 +95,4 @@ class CreditCard
     {
         return $this->securityCode;
     }
-    
 }

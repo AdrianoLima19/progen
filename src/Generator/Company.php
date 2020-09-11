@@ -2,9 +2,6 @@
 
 namespace Progen\Generator;
 
-require_once "Cep.php";
-use Progen\Generator\Cep;
-
 class Company
 {
 
